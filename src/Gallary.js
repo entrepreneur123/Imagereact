@@ -7,6 +7,7 @@ import Img3 from './img/img3.jpg';
 import Img4 from './img/img4.jpg';
 import Img5 from './img/img5.jpg';
 import Img6 from './img/img6.jpg';
+import useFileDownloader from "hooks/useFileDownloader";
 
 
 const Gallary = () =>{
@@ -48,6 +49,11 @@ const getImg = (imgSrc)=>{
     setModel(true);
 
 }
+
+const FileDownloader = () => {
+    const [downloadFile, downloaderComponentUI] = useFileDownloader();
+  
+    const download = (file) => downloadFile(file);
 
 
 
