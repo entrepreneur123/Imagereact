@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+ import { AiOutlineCheckSquare  } from "react-icons/ai";
 //import "./index.css";
-//import { ProgressBar } from "react-bootstrap";
+//import { ProgressBar } from "@material-ui/core";
+import CircularProgress from '@material-ui/core/CircularProgress';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Axios from "axios";
+import axios from "axios";
 
 const Downloader = ({ files = [], remove }) => {
   return (
@@ -45,7 +47,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
       },
     };
 
-    Axios.get(file, {
+    axios.get(file, {
       responseType: "blob",
       ...options,
     }).then(function (response) {
@@ -98,13 +100,13 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
           <div className="d-inline ml-2 ml-auto">
             {downloadInfo.completed && (
               <span className="text-success">
-                Completed <FontAwesomeIcon icon="check-circle" />
+                Completed <AiOutlineCheckSquare  />
               </span>
             )}
           </div>
         </div>
         <div className="col-12 mt-2">
-          <ProgressBar
+          < CircularProgress 
             variant="success"
             now={downloadInfo.progress}
             striped={true}

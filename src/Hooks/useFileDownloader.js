@@ -1,4 +1,4 @@
-import Downloader from "components/Downloader";
+import Downloader from "../components/Downloader";
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
